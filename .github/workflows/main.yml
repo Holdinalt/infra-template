@@ -10,5 +10,5 @@ jobs:
       - name: TS check
         uses: fersilva16/ts-report-action@1.2.1
         with:
-          project: tsconfig.json
+          project: ./tsconfig.json
         
