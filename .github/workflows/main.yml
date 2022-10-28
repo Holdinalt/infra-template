@@ -1,0 +1,14 @@
+name: CI on push
+
+on: push 
+
+jobs:
+  ts-testing:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: TS check
+        uses: fersilva16/ts-report-action@1.2.1
+        with:
+          project: tsconfig.json
+        
