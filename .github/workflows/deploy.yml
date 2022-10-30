@@ -23,7 +23,7 @@ jobs:
       - name: Getting release tag
         run: |
           echo ${{ github.ref_name }}
-          git describe --abbrev=0 --tags ${currentTag}^
+          git describe --abbrev=0 --tags ${{ github.ref_name }}^
           
                 
 
