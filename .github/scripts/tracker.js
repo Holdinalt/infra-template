@@ -20,7 +20,7 @@ console.log(commits, 'commits')
 // }
 //
 // const body = {
-//     summary: tag,
+//     summary: `Релиз ${tag} - ${new Date().toLocaleDateString('en-US')}`,
 //     description: desc
 // }
 //

@@ -29,10 +29,8 @@ jobs:
       - name: Dependencies
         run: npm ci
 
-      - name: Run Docker
-        run: echo ${{ github.event.repository.name }}
-
-
+      - name: Build Docker Image
+        run: docker build -t ${{github.event.repository.name}}:${{github.ref_name }} .
 
       - name: Getting pre tag
         run: echo "PREV_TAG=$(echo $(git describe --abbrev=0 --tags ${{ github.ref_name }}^))" >> $GITHUB_ENV
@@ -55,14 +53,5 @@ jobs:
           AUTHOR: ${{ github.event.pusher.name }}
           ID: ${{ secrets.ORG_ID }}
 
-
-#          prevTag = git describe --abbrev=0 --tags ${{ github.ref_name }}^
-#          currentTag = ${{ github.ref_name }}
-#
-#          tagsArr = "$prevTag"
-#          tagsArr += ".."
-#          tagsArr += "$currentTag"
-#
-#          echo tagsArr
 
 
