@@ -3,7 +3,8 @@
 const token = process.env.TOKEN
 const ticket = process.env.TICKET
 const tag = process.env.TAG
-const commits = process.env.COMMITS
+let commits = process.env.COMMITS
+commits = commits.slice(0, length - 1) + commits.slice(length)
 const author = process.env.AUTHOR
 const orgID = process.env.ID
 
