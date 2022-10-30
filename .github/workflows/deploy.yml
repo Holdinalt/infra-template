@@ -12,6 +12,7 @@ jobs:
   release-build:
     runs-on: ubuntu-latest
     needs: check
+
     steps:
       - name: Getting release tag
         run:
