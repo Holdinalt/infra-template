@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Getting pre tag
-        run: echo "PREV_TAG=$(echo git describe --abbrev=0 --tags ${{ github.ref_name }}^)" >> $GITHUB_ENV
+        run: echo "PREV_TAG=$(echo $(git describe --abbrev=0 --tags ${{ github.ref_name }}^))" >> $GITHUB_ENV
       - name: Prev
         run: echo $PREV_TAG
 #          prevTag = git describe --abbrev=0 --tags ${{ github.ref_name }}^
