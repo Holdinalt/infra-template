@@ -7,11 +7,11 @@ let commits = process.env.COMMITS
 // Когда сделал, понял что можно просто строку передавать уже отформатированную bash, а не массив.
 // Представьте, что этого костыля нет, пожалуйста. Мне жалко удалять эти 25 минут жизни
 commits = commits.slice(0, commits.length - 2) + commits.slice(commits.length - 1)
+commits = JSON.parse(commits)
 const author = process.env.AUTHOR
 const orgID = process.env.ID
 
-console.log(JSON.parse(commits))
-console.log(JSON.parse(commits)[0])
+console.log(JSON.parse(commits), 'commits')
 
 let desc = `Ответственный за релиз ${author}.\n Коммиты, попавшие в релиз:\n`
 
