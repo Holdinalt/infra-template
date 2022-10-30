@@ -22,13 +22,15 @@ jobs:
 
       - name: Getting release tag
         run: |
-          prevTag = git describe --abbrev=0 --tags ${{ github.ref_name }}^ 
-          currentTag = ${{ github.ref_name }}
-          
-          tagsArr = "$prevTag"
-          tagsArr += ".."
-          tagsArr += "$currentTag"
-          
-          echo tagsArr
+          echo "PREV_TAG=$(git describe --abbrev=0 --tags ${{ github.ref_name }}^)" >> $GITHUB_ENV
+          echo ${{ env.PREV_TAG }}
+#          prevTag = git describe --abbrev=0 --tags ${{ github.ref_name }}^
+#          currentTag = ${{ github.ref_name }}
+#
+#          tagsArr = "$prevTag"
+#          tagsArr += ".."
+#          tagsArr += "$currentTag"
+#
+#          echo tagsArr
 
 
