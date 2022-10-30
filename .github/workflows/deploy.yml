@@ -36,7 +36,7 @@ jobs:
           TOKEN: ${{ secrets.OAUTH_TOKEN }}
           TICKET: ${{ secrets.TICKET_ID }}
           TAG: ${{ github.ref_name }}
-          COMMITS: $COMMITS
+          COMMITS: ${{env.COMMITS}}
           AUTHOR: ${{ github.event.pusher.name }}
           ID: ${{ secrets.ORG_ID }}
 
