@@ -15,11 +15,16 @@ jobs:
 
     steps:
 
-      - name: Getting release tag
+      - name: Setup checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-#        run: |
-#          echo ${{ github.ref_name }}
-#          git describe --abbrev=0 --tags ${currentTag}^
+
+      - name: Getting release tag
+        run: |
+          echo ${{ github.ref_name }}
+          git describe --abbrev=0 --tags ${currentTag}^
+          
+                
+
 
