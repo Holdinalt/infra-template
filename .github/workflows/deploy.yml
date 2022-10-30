@@ -22,8 +22,10 @@ jobs:
 
       - name: Getting pre tag
         run: echo "PREV_TAG=$(echo $(git describe --abbrev=0 --tags ${{ github.ref_name }}^))" >> $GITHUB_ENV
-      - name: Prev
-        run: echo $PREV_TAG
+      - name: Getting commits
+        run: echo "COMMITS=$(echo $(git log --pretty=format:"%h %an %s" ${{env.PREV_TAG}}..${{ github.ref_name }}))" >> $GITHUB_ENV
+      - name: get
+        run: echo $COMMITS
 #          prevTag = git describe --abbrev=0 --tags ${{ github.ref_name }}^
 #          currentTag = ${{ github.ref_name }}
 #
