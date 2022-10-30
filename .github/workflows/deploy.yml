@@ -29,7 +29,7 @@ jobs:
       - name: Getting pre tag
         run: echo "PREV_TAG=$(echo $(git describe --abbrev=0 --tags ${{ github.ref_name }}^))" >> $GITHUB_ENV
       - name: Getting commits
-        run: echo "COMMITS=$(echo [$(git log --pretty=format:"[\"%h\",\"%an\",\"%s\"]" ${{env.PREV_TAG}}..${{ github.ref_name }}),])" >> $GITHUB_ENV
+        run: echo "COMMITS=$(echo [$(git log --pretty=format:"[\"%h\",\"%an\",\"%s\"]," ${{env.PREV_TAG}}..${{ github.ref_name }})])" >> $GITHUB_ENV
       - name: Add to Tracker
         run: node ./.github/scripts/tracker.js
         env:
