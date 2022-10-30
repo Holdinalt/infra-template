@@ -20,10 +20,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Getting release tag
-        run: |
-          echo "PREV_TAG=$(echo git describe --abbrev=0 --tags ${{ github.ref_name }}^)" >> $GITHUB_ENV
-          echo ${{ env.PREV_TAG }}
+      - name: Getting pre tag
+        run: echo "PREV_TAG=$(echo git describe --abbrev=0 --tags ${{ github.ref_name }}^)" >> $GITHUB_ENV
+      - name: Prev
+        run: echo $PREV_TAG
 #          prevTag = git describe --abbrev=0 --tags ${{ github.ref_name }}^
 #          currentTag = ${{ github.ref_name }}
 #
