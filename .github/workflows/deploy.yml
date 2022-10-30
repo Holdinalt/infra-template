@@ -38,7 +38,7 @@ jobs:
         run: echo "PREV_TAG=$(echo $(git describe --abbrev=0 --tags ${{ github.ref_name }}^))" >> $GITHUB_ENV
 
       - name: Getting commits
-        run: echo ${{ ${{env.PREV_TAG}} != ${{ github.ref_name }} }}
+        run: echo ${{ env.PREV_TAG !=  github.ref_name }}
 
 #          if [[${{env.PREV_TAG}} != ${{ github.ref_name }}]]; then
 #            echo "COMMITS=$(echo [$(git log --pretty=format:"[\"%h\",\"%an\",\"%s\"]," ${{env.PREV_TAG}}..${{ github.ref_name }})])" >> $GITHUB_ENV
