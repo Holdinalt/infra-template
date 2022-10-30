@@ -1,4 +1,4 @@
-// let XMLHttpRequest = require('xhr2');
+let XMLHttpRequest = require('xhr2');
 
 const token = process.env.TOKEN
 const ticket = process.env.TICKET
