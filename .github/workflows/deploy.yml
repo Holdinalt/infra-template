@@ -5,25 +5,25 @@ on:
       - 'master/rc-**'
       
 jobs:
-#  TS-test:
-#    runs-on: ubuntu-latest
-#    strategy:
-#      matrix:
-#        node-version: [ 16.x ]
-#    steps:
-#      - uses: actions/checkout@v1
-#      - name: Use Node.js ${{ matrix.node-version }}
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: ${{ matrix.node-version }}
-#      - name: Install dependencies
-#        run: yarn install --frozen-lockfile
-#      - name: Typecheck
-#        uses: andoshin11/typescript-error-reporter-action@v1.0.2
+  TS-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Typecheck
+        uses: andoshin11/typescript-error-reporter-action@v1.0.2
 
   release-build:
     runs-on: ubuntu-latest
-#    needs: [TS-test]
+    needs: [TS-test]
     steps:
       - name: Getting release tag
         run:
