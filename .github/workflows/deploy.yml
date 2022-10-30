@@ -26,6 +26,9 @@ jobs:
           node-version: 16.16.0
           cache: 'npm'
 
+      - name: Dependencies
+        run: npm ci
+
       - name: Getting pre tag
         run: echo "PREV_TAG=$(echo $(git describe --abbrev=0 --tags ${{ github.ref_name }}^))" >> $GITHUB_ENV
       - name: Getting commits
