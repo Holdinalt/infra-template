@@ -14,7 +14,11 @@ jobs:
 #    needs: check
 
     steps:
+
       - name: Getting release tag
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
         run: |
           echo ${{ github.ref_name }}
           git describe --abbrev=0 --tags ${currentTag}^
