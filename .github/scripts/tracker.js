@@ -1,8 +1,4 @@
-let XMLHttpRequest = require('xhr2');
-
-/*
-token tag commits author
- */
+// let XMLHttpRequest = require('xhr2');
 
 const token = process.env.TOKEN
 const ticket = process.env.TICKET
