@@ -20,12 +20,27 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Use Node.js 16.16.0
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.16.0
+          cache: 'npm'
+
       - name: Getting pre tag
         run: echo "PREV_TAG=$(echo $(git describe --abbrev=0 --tags ${{ github.ref_name }}^))" >> $GITHUB_ENV
       - name: Getting commits
         run: echo "COMMITS=$(echo [$(git log --pretty=format:"[%h,%an,%s]" ${{env.PREV_TAG}}..${{ github.ref_name }})])" >> $GITHUB_ENV
-      - name: get
-        run: echo $COMMITS
+      - name: Add to Tracker
+        run: node ./scripts/tracker.js
+        env:
+          TOKEN: ${{ secrets.OAUTH_TOKEN }}
+          TICKET: ${{ secrets.TICKET_ID }}
+          TAG: ${{ github.ref_name }}
+          COMMITS: $COMMITS
+          AUTHOR: ${{ github.event.pusher.name }}
+          ID: ${{ secrets.ORG_ID }}
+
+
 #          prevTag = git describe --abbrev=0 --tags ${{ github.ref_name }}^
 #          currentTag = ${{ github.ref_name }}
 #
