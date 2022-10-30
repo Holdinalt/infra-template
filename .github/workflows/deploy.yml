@@ -31,9 +31,7 @@ jobs:
       - name: Getting commits
         run: echo "COMMITS=$(echo [$(git log --pretty=format:"[%h,%an,%s]" ${{env.PREV_TAG}}..${{ github.ref_name }})])" >> $GITHUB_ENV
       - name: Add to Tracker
-        runs:
-          using: 'node16'
-          main: './scripts/tracker.js'
+        run: node ./scripts/tracker.js
         env:
           TOKEN: ${{ secrets.OAUTH_TOKEN }}
           TICKET: ${{ secrets.TICKET_ID }}
