@@ -6,8 +6,8 @@ on:
       
 jobs:
 
-  check:
-    uses: ./.github/workflows/main.yml
+#  check:
+#    uses: ./.github/workflows/main.yml
 
   release-build:
     runs-on: ubuntu-latest
@@ -15,6 +15,7 @@ jobs:
 
     steps:
       - name: Getting release tag
-        run:
+        run: |
           echo ${{ github.ref_name }}
+          git describe --abbrev=0 --tags ${currentTag}^
 
