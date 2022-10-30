@@ -11,7 +11,7 @@ commits = JSON.parse(commits)
 const author = process.env.AUTHOR
 const orgID = process.env.ID
 
-console.log(JSON.parse(commits), 'commits')
+console.log(commits, 'commits')
 
 let desc = `Ответственный за релиз ${author}.\n Коммиты, попавшие в релиз:\n`
 
