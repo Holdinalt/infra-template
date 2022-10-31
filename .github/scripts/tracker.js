@@ -33,16 +33,15 @@ xhr.setRequestHeader('Host', 'https://api.tracker.yandex.net')
 xhr.setRequestHeader('Authorization', `OAuth ${token}`)
 xhr.setRequestHeader('X-Org-ID', orgID)
 
-// xhr._onHttpResponse((req, res) => console.log(res))
-
 xhr.onreadystatechange = () => {
     console.log(xhr.response)
 }
 
 xhr.send(JSON.stringify(body))
 
+
 const xhrComment = new XMLHttpRequest();
-xhrComment.open("PATCH", `https://api.tracker.yandex.net/v2/issues/${ticket}/comments`)
+xhrComment.open("POST", `https://api.tracker.yandex.net/v2/issues/${ticket}/comments`)
 xhrComment.setRequestHeader('Host', 'https://api.tracker.yandex.net')
 xhrComment.setRequestHeader('Authorization', `OAuth ${token}`)
 xhrComment.setRequestHeader('X-Org-ID', orgID)
