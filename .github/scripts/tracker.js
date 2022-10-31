@@ -34,7 +34,11 @@ xhr.setRequestHeader('Authorization', `OAuth ${token}`)
 xhr.setRequestHeader('X-Org-ID', orgID)
 
 xhr.onreadystatechange = () => {
-    console.log(xhr.response)
+    if (xhrComment.status === 200) {
+        console.log('Ticket has been changed')
+    } else {
+        console.log(xhr.response)
+    }
 }
 
 xhr.send(JSON.stringify(body))
@@ -47,7 +51,11 @@ xhrComment.setRequestHeader('Authorization', `OAuth ${token}`)
 xhrComment.setRequestHeader('X-Org-ID', orgID)
 
 xhrComment.onreadystatechange = () => {
-    console.log(xhrComment.response)
+    if (xhrComment.status === 200) {
+        console.log('Build added successfully')
+    } else {
+        console.log(xhr.response)
+    }
 }
 
 xhrComment.send(JSON.stringify({text: `Собрали образ в тегом ${tag}`}))
